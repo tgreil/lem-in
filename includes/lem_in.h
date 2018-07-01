@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 17:48:19 by tgreil            #+#    #+#             */
-/*   Updated: 2018/05/26 16:31:51 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/07/01 10:18:15 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int							lem_in_one_turn(t_lem_in *container);
 */
 int							parse_nbr(t_lem_in *container, char **line);
 int							parse_room(t_lem_in *container, char *line);
-int							parse_pipe(t_lem_in *container, char *line);
+int							parse_pipe(t_lem_in *container, char *line, int i);
 int							parse_instruction(t_lem_in *container, char *line);
 int							parse_comment(t_lem_in *container, char *line);
 

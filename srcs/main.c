@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 17:45:47 by tgreil            #+#    #+#             */
-/*   Updated: 2018/05/26 16:31:58 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/07/01 10:18:21 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,12 @@ int				main(int ac, char **av)
 	while (get_next_line(0, &line) > 0)
 	{
 		type = parse_get_type(line);
-		if (type == TYPE_ROOM)
-			type = parse_room(&container, line);
-		else if (type == TYPE_PIPE)
-			type = parse_pipe(&container, line);
-		else if (type == TYPE_INSTRUCTION)
+		if (type == TYPE_INSTRUCTION)
 			type = parse_instruction(&container, line);
-		else
+		else if (type == TYPE_COMMENT)
 			type = parse_comment(&container, line);
-		if (type == E_ERROR)
+		else if (parse_room(&container, line) == E_ERROR &&
+				parse_pipe(&container, line, 0) == E_ERROR)
 			break ;
 		free(line);
 	}

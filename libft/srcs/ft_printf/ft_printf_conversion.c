@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 15:32:33 by tgreil            #+#    #+#             */
-/*   Updated: 2018/04/11 14:26:15 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/06/30 21:56:54 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static size_t	ft_printf_conversion_flags(t_printf *pf, size_t i)
 {
-	while (pf->str[i] == ZERO_CHAR || pf->str[i] == HASHTAG_CHAR ||
-			pf->str[i] == SUB_CHAR || pf->str[i] == ADD_CHAR ||
-			pf->str[i] == SPACE_CHAR || pf->str[i] == QUOTE_CHAR)
+	while ((pf->str[i] == ZERO_CHAR || pf->str[i] == HASHTAG_CHAR) ||
+			(pf->str[i] == SUB_CHAR || pf->str[i] == ADD_CHAR) ||
+			(pf->str[i] == SPACE_CHAR || pf->str[i] == QUOTE_CHAR))
 	{
 		if (pf->str[i] == ZERO_CHAR)
 			pf->conv.field_fill_char = ZERO_CHAR;
@@ -121,8 +121,9 @@ int				ft_printf_conversion(t_printf *pf)
 	while (pf->str[i] == QUOTE_CHAR)
 		i++;
 	pf->conv.size = 0;
-	while (pf->str[i] == H_CHAR || pf->str[i] == J_CHAR || pf->str[i] == L_CHAR
-		|| pf->str[i] == Z_CHAR || pf->str[i] == LL_CHAR | pf->str[i] == Q_CHAR)
+	while ((pf->str[i] == H_CHAR || pf->str[i] == J_CHAR)
+			|| (pf->str[i] == L_CHAR || pf->str[i] == Z_CHAR)
+			|| (pf->str[i] == LL_CHAR || pf->str[i] == Q_CHAR))
 		i = ft_printf_convesion_size(pf, i);
 	i = ft_printf_conversion_flags(pf, i);
 	ft_printf_conversion_find(pf, pf->str[i]);

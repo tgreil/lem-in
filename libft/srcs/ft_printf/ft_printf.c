@@ -50,5 +50,5 @@ int			ft_printf(char *str, ...)
 			pf.i++;
 	}
 	va_end(pf.ap);
-	return (pf.failed ? -1 : pf.printed);
+	return (pf.failed ? -1 : (int)pf.printed);
 }

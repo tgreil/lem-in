@@ -6,7 +6,7 @@
 #    By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/07 16:24:07 by tgreil            #+#    #+#              #
-#    Updated: 2018/05/15 11:15:04 by tgreil           ###   ########.fr        #
+#    Updated: 2018/07/01 10:29:18 by tgreil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ LDFLAGS	=  $(LIBS)
 
 $(PROJECT):	$(LIB) $(NAME)
 
-$(NAME): 	$(OBJS)
+$(NAME): 	$(OBJS) Makefile includes/lem_in.h
 	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 $(LIB):

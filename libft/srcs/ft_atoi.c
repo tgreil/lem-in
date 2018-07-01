@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/06 18:04:18 by tgreil            #+#    #+#             */
-/*   Updated: 2018/04/03 18:25:23 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/06/30 21:57:20 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int			ft_atoi(const char *str)
 	i = 0;
 	nbr = 0;
 	is_neg = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v' ||
-			*str == '\r' || *str == '\f')
+	while (*str && (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
+			|| *str == '\r' || *str == '\f'))
 		str++;
 	if (*str == '-')
 		is_neg = -1;

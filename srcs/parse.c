@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 11:45:48 by tgreil            #+#    #+#             */
-/*   Updated: 2018/05/26 16:35:13 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/07/01 10:50:23 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,28 @@ int			parse_room(t_lem_in *container, char *line)
 	return (room_add(container, name, &coord));
 }
 
-int			parse_pipe(t_lem_in *container, char *line)
+int			parse_pipe(t_lem_in *container, char *line, int i)
 {
 	t_room	*one;
 	t_room	*two;
-	int		i;
 
-	i = 0;
 	one = container->rooms;
 	while (line[i] && line[i] != '-')
 		i++;
-	while (one && ft_strncmp(one->name, line, i))
+	while (one && (ft_strncmp(one->name, line, (int)ft_strlen(one->name)) ||
+												i != (int)ft_strlen(one->name)))
 		one = one->next;
-	if (!one)
-		return (E_ERROR);
+	if (!one || !line[i])
+		return (line[i] ? parse_pipe(container, line, i + 1) : E_ERROR);
 	two = container->rooms;
 	while (two && ft_strcmp(two->name, line + i + 1))
 		two = two->next;
 	if (!two || one == two)
-		return (E_ERROR);
-	i = 0;
-	while (i < one->linked)
-	{
+		return (line[i] ? parse_pipe(container, line, i + 1) : E_ERROR);
+	i = -1;
+	while (++i < one->linked)
 		if (one->branch[i] == two)
 			return (E_ERROR);
-		i++;
-	}
 	return (rooms_link(one, two, 0));
 }
 

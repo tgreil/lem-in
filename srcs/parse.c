@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 11:45:48 by tgreil            #+#    #+#             */
-/*   Updated: 2018/07/01 10:50:23 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/07/01 10:59:43 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			parse_nbr(t_lem_in *container, char **line)
 		get_next_line(0, line);
 	}
 	container->nbr = ft_atoi(*line);
-	if (container->nbr <= 0)
+	if (container->nbr <= 0 || container->nbr > LEM_MAX)
 		return (E_ERROR + ft_puterror());
 	return (E_SUCCESS);
 }

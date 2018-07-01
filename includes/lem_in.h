@@ -6,7 +6,7 @@
 /*   By: tgreil <tgreil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/26 17:48:19 by tgreil            #+#    #+#             */
-/*   Updated: 2018/07/01 10:18:15 by tgreil           ###   ########.fr       */
+/*   Updated: 2018/07/01 10:56:44 by tgreil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define INSTRUCTION_START	5
 # define INSTRUCTION_END	6
 # define NO_INSTRUCTION		7
+# define LEM_MAX			1000000000
 # define ERROR_MSG			"ERROR"
 
 typedef struct				s_coord
